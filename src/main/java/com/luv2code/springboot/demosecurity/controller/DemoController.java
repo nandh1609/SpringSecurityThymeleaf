@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
-/**  To add an employee in the db refer the thymeleafxspringboot folder for that we need to use the crud ops
+/**  To add n employee in the db refer the thymeleafxspringboot folder for that we need to use the crud ops
  *
  *
  *
