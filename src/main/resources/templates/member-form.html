@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Save Member</title>
+</head>
+
+<body>
+<div class = "container">
+    <h3> Member Directory</h3>
+
+    <p class="h4 mb-4">Save Member</p>
+    <form action="#" th:action="@{/save}"
+          th:object="${member}" method="POST">   <!-- action is the path we will go , object is the model name mentioned in the elmployeecontroller -->
+        <!--the below hidden field will update form after updation -->
+        <input type="hidden" th:field="*{id}">
+
+        <input type="text" th:field="*{user_id}"
+               class="form-control mb-4 w-25" placeholder="user name">     <!--th field value must be same as the refernced value that we gave as the Employee class variables -->
+        <input type="text" th:field="*{password}"
+               class="form-control mb-4 w-25" placeholder="Password">
+        <button type="submit" class="btn btn-info col-2">save</button>
+    </form>
+
+    <hr>
+    <a th:href="@{/}">Back to member loginPage</a>
+</div>
+</body>
+
+</html>

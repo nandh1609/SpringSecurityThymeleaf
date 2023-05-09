@@ -67,10 +67,14 @@
                                 </div>
                                 <hr>
                                 <div style="margin-top: 10px;" class="form-group">
-                                    <div class="col-sm-6 controls">
-                                        New User...? : <button type="submit" class="btn btn-primary">Register User</button>
-                                    </div>
+                                    <!--Add a button (/employees/showFormForAdd) is the path in web app for adding employee-->
+                                    <a th:href="@{/showFormForAdd}"
+                                       class="btn btn-primary btn-small mb-3">   <!-- this class is a bootstrap css -->
+                                        Add Employee
+                                    </a>
                                 </div>
+
+
                                 <hr>
 
                             </form>
