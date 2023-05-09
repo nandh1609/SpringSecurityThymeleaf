@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org">    <!--here sec is the security -->
+<head>
+    <meta charset="UTF-8">
+    <title>luv2code company homepage</title>
+</head>
+<body>
+    <h2>luv2code company homepage</h2>
+    <hr>
+    <p>
+        Welcome to the HomePage!!!
+    </p>
+
+    <hr>
+
+    <!--display username and roles -->
+
+    <p><!--in below sec is the security -->
+        User: <span sec:authentication="principal.username"></span>  <!--here the pricipal.username gives the name of the username currenty logged in -->
+        <br><br>
+        Role(s): <span sec:authentication="principal.authorities"></span> <!--here the pricipal.username gives the names of the roles of the user currenty logged in -->
+
+    </p>
+
+    <!--Add link to /leaders for the managers to access -->
+    <div sec:authorize="hasRole('MANAGER')">  <!--Here this sec authorize will automatically authorize and show the below content based on roles mentioned -->
+        <p>
+            <a th:href="@{/leaders}">Leadership Meeting</a>
+            (Only For managers peeps)
+        </p>
+    </div>
+
+    <hr>
+    <!--Add link to /systems for the managers to access -->
+    <div sec:authorize="hasRole('ADMIN')">  <!--Here this sec authorize will automatically authorize and show the below content based on roles mentioned -->
+        <p>
+            <a th:href="@{/systems}">System Admins Meeting</a>
+            (Only For Admins peeps)
+        </p>
+    </div>
+
+
+    <!--Add logout button-->
+    <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+
+</body>
+</html>

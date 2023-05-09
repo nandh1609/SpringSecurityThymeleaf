@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Login page</title>
+
+    <style>
+        .failed{
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<h3>My Custom Login Page</h3>
+
+<form action="#" th:action="@{/authenticateTheUser}" method = "POST">   <!--This action is from the context path that we mentioned in the filterchain in controller -->
+
+    <!-- Check for login error -->
+    <div th:if="${param.error}">    <!--Here the param error we got from the website as it goes thriugh the cycle as mentioned in the vedio diagram and in the ur it will show like this ---- http://localhost:8090/showMyLoginPage?error  and here error is the param so param.error  -->
+        <i class="failed">Sorry! you've entered invalid username and password</i>
+    </div>
+
+
+    <p>
+        username: <input type="text" name="username"/>
+    </p>
+
+    <p>
+        password: <input type="password" name="password"/>
+    </p>
+
+    <input type="submit" value="login"/>
+
+</form>
+
+</body>
+</html>
